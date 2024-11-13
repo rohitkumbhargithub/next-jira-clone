@@ -21,7 +21,7 @@ const routes = [
         activeIcon: GoCheckCircleFill,
     },
     {
-        label: "Setting",
+        label: "Settings",
         href: "/settings",
         icon: SettingsIcon,
         activeIcon: SettingsIcon,
