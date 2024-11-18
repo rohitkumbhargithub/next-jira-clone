@@ -28,12 +28,12 @@ import { updateProjectSchema } from "../schema";
 import { useUpdateProject } from "../api/use-update-projects";
 
 
-interface EditWorkspaceFormProps {
+interface EditProjectFormProps {
     onCancel?: () => void;
     initialValues: Project;
 };
 
-export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceFormProps) => {
+export const EditProjectForm = ({ onCancel, initialValues }: EditProjectFormProps) => {
     const router = useRouter();
     const { mutate, isPending } = useUpdateProject();
     const { mutate: deleteProject, 
@@ -219,7 +219,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                         size="sm"
                         variant="destructive"
                         type="button"
-                        disabled={isPending}
+                        disabled={isPending || isDeletingProject}
                         onClick={handleDelete}
                     >Delete Project</Button>
                 </div>

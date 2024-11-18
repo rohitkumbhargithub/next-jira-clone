@@ -60,7 +60,7 @@ interface GetWorkspaceInfoProps {
   workspaceId: string;
 }
 
-export const GetWorkspaceInfo = async ({
+export const getWorkspaceInfo = async ({
   workspaceId,
 }: GetWorkspaceInfoProps) => {
   const { databases } = await createSessionClient();

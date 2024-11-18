@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getCurrent } from "@/features/auth/queries";
 import { getProject } from "@/app/features/projects/queries";
-import { EditWorkspaceForm } from "@/app/features/projects/components/edit-project-form";
+import { EditProjectForm } from "@/app/features/projects/components/edit-project-form";
 
 interface ProjectIdSettigsPageProps {
     params: {
@@ -20,7 +20,7 @@ const ProjectIdSettigsPage = async ({
     })
     return (
         <div className="w-full lg:max-w-xl">
-            <EditWorkspaceForm initialValues={initialValues}/>
+            <EditProjectForm initialValues={initialValues}/>
         </div>
     )
 }

@@ -95,13 +95,7 @@ export const UpdateWorkspaceForm = ({ onCancel, initialValues }: UpdateWorkspace
             ...values,
             image: values.image instanceof File ? values.image : "",
         }
-        mutate({ form: finalValues, param: {workspaceId: initialValues.$id} }, {
-            onSuccess: () => {
-                form.reset();   
-                
-                // TODO: Redirect to new workspace
-            }
-        }); 
+        mutate({ form: finalValues, param: {workspaceId: initialValues.$id} }); 
     }
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
