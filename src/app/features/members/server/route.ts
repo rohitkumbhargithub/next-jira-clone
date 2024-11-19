@@ -125,14 +125,14 @@ const app = new Hono()
                 const member = await getMember({
                     databases,
                     workspaceId: memberToUpdate.workspaceId,
-                    userId: user.$id
+                    userId: user.$id,
                 });
 
                 if(!member){
                     return c.json({ error: "UnAuthorized!" }, 401);
                 }
 
-                if(member.$id !== MemberRole.ADMIN){
+                if(member.role !== MemberRole.ADMIN){
                     return c.json({ error: "UnAuthorized!" }, 401);
                 }
 

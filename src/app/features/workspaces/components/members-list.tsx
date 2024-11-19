@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { Fragment } from "react";
 import { Button } from "../../../../components/ui/button";
 import { useConfirm } from "@/hooks/use-confirm";
 import { Separator } from "@/components/ui/separator";
+import { useWorkspaceId } from "@/app/features/workspaces/hooks/use-workspaceId";
 import { ArrowLeftIcon, MoreVerticalIcon } from "lucide-react";
 import { MemberAvatar } from "../../members/components/member-avatar";
 import { MemberRole } from "../../members/types";
@@ -12,7 +13,6 @@ import { useUpdateMember } from "../../members/api/user-update-member";
 import { useDeleteMember } from "../../members/api/user-delete-member";
 import { useGetMembers } from "@/app/features/members/api/user-get-member";
 import { DottedSperator } from "../../../../components/dotted-speator";
-import { useWorkspaceId } from "@/app/features/workspaces/hooks/use-workspaceId";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
     DropdownMenu,
