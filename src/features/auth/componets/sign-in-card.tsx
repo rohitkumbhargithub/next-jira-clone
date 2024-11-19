@@ -7,18 +7,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 import { Input } from "@/components/ui/input"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import Link from "next/link";
 import { loginSchema } from "./schema";
 import { useLogin } from "../api/use-login";
-
-
-// const formSchema = z.object({
-//     email: z.string().trim().min(1, "required").email(),
-//     password: z.string().min(8, "Minimum 8 characters"),
-// })
 
 
 export const SignInCard = () => {
@@ -90,12 +85,12 @@ export const SignInCard = () => {
                 <DottedSperator/>
             </div>
             <CardContent className="p-7 flex flex-col gap-y-4">
-                <Button variant="secondary" size="lg" disabled={isPending}>
+                <Button onClick={() => signUpWithGoogle()} variant="secondary" size="lg" disabled={isPending}>
                     <FcGoogle className="mr-2 size-5"/>
                     Login with Google 
                 </Button>
 
-                <Button variant="secondary" size="lg" disabled={isPending}>
+                <Button onClick={() => signUpWithGithub()} variant="secondary" size="lg" disabled={isPending} >
                 <FaGithub className="mr-2 size-5"/>
                     Login with GitHub 
                 </Button>

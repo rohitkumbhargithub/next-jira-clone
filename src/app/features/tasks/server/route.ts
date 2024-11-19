@@ -19,8 +19,6 @@ const app = new Hono()
             const databases = c.get("database");
             const { taskId } = c.req.param();
 
-            console.log(user.$id)
-
             const task = await databases.getDocument<Task>(
                 DATABASE_ID,
                 TASKS_ID,
@@ -140,7 +138,7 @@ const app = new Hono()
                     
                     return {
                         ...member,
-                        name: user.name,
+                        name: user.name || user.email,
                         email: user.email,
                     }
                 })
@@ -324,7 +322,7 @@ const app = new Hono()
             const user = await users.get(member.userId);
             const assignee = {
                 ...member,
-                name: user.name,
+                name: user.name || user.email,
                 email: user.email,
             }
 
