@@ -1,6 +1,5 @@
 "use client";
 
-import { useGetWorkspace } from "@/app/features/workspaces/api/use-get-workspace"
 import { useGetWorkspaceInfo } from "@/app/features/workspaces/api/use-get-workspace-info";
 import { JoinWorkspaceForm } from "@/app/features/workspaces/components/join-workspace-form";
 import { useWorkspaceId } from "@/app/features/workspaces/hooks/use-workspaceId";

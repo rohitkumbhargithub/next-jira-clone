@@ -11,7 +11,6 @@ import {
   DATABASE_ID,
   IMAGES_BUCKET_ID,
   MEMBERS_ID,
-  PROJECTS_ID,
   TASKS_ID,
   WORKSPACES_ID,
 } from "@/config";
@@ -328,8 +327,8 @@ const app = new Hono()
         [
           Query.equal("workspaceId", workspaceId),
           Query.equal("assigneeId", member.$id),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 
@@ -353,8 +352,8 @@ const app = new Hono()
         [
           Query.equal("workspaceId", workspaceId),
           Query.notEqual("status", TaskStatus.DONE),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 
@@ -379,8 +378,8 @@ const app = new Hono()
         [
           Query.equal("workspaceId", workspaceId),
           Query.equal("status", TaskStatus.DONE),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 
@@ -406,8 +405,8 @@ const app = new Hono()
           Query.equal("workspaceId", workspaceId),
           Query.notEqual("status", TaskStatus.DONE),
           Query.lessThan("dueDate", now.toISOString()),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 

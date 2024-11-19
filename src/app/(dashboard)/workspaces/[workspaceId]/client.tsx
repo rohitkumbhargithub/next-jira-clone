@@ -24,7 +24,7 @@ import { Member } from "@/app/features/members/types";
 import { MemberAvatar } from "@/app/features/members/components/member-avatar";
 
 
-const WorkspaceIdClient = async () => {
+const WorkspaceIdClient = () => {
     const workspaceId = useWorkspaceId();
     const { data: analytics, isLoading: isLoadingAnalytics  } = useGetWorkspaceAnalytics({
         workspaceId

@@ -1,9 +1,7 @@
 "use client";
 
 import { z } from "zod";
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/date-picker";
@@ -47,9 +45,7 @@ export const CreateTaskForm = ({
   memberOptions,
 }: CreateTasksFormProps) => {
   const workspaceId = useWorkspaceId();
-  const router = useRouter();
   const { mutate, isPending } = useCreateTask();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
     resolver: zodResolver(createTaskSchema.omit({ workspaceId: true })),

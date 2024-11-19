@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ResponsiveModal } from "@/components/responsive-model"
 import { useCreateTasksModal } from "../hooks/use-create-tasks-modal"

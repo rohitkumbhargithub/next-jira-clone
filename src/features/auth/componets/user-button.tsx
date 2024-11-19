@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Loader, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";

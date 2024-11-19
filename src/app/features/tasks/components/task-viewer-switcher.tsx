@@ -2,7 +2,6 @@
 
 import { useCallback } from "react";
 import { useWorkspaceId } from "../../workspaces/hooks/use-workspaceId";
-import { useProjectId } from "../../projects/hooks/use-project-id";
 import { Loader, PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DottedSperator } from "@/components/dotted-speator";
@@ -32,7 +31,6 @@ export const TaskViewSwitcher = ({hideProjectFilter}: TaskViewSwitcherProps) => 
   });
 
   const workspaceId = useWorkspaceId();
-  const paramProjectId = useProjectId();
   const { open } = useCreateTasksModal();
   const { mutate: bulkUpdate } = useBulkUpdateTasks();
   const { data: tasks, isLoading: isLoadingTasks } = useGetTask({

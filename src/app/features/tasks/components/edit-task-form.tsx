@@ -1,9 +1,7 @@
 "use client";
 
 import { z } from "zod";
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/date-picker";
@@ -11,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ProjectAvatar } from "../../projects/components/project-avatar";
 import { MemberAvatar } from "../../members/components/member-avatar";
-import { useWorkspaceId } from "../../workspaces/hooks/use-workspaceId";
 import { createTaskSchema } from "../schemas";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -33,7 +30,6 @@ import {
 
 import { Task, TaskStatus } from "../types";
 import { DottedSperator } from "@/components/dotted-speator";
-import { useCreateTask } from "../api/use-create-task";
 import { useUpdateTask } from "../api/use-update-task";
 
 interface EditTasksFormProps {
@@ -49,10 +45,9 @@ export const EditTaskForm = ({
   memberOptions,
   initialValues
 }: EditTasksFormProps) => {
-  const workspaceId = useWorkspaceId();
-  const router = useRouter();
+  
   const { mutate, isPending } = useUpdateTask();
-  const inputRef = useRef<HTMLInputElement>(null);
+ 
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
     resolver: zodResolver(createTaskSchema.omit({ workspaceId: true, description: true })),

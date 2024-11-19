@@ -6,9 +6,14 @@ import { MemberAvatar } from "../../members/components/member-avatar"
 import { useWorkspaceId } from "../../workspaces/hooks/use-workspaceId"
 import { useRouter } from "next/navigation"
 
+interface Assignee {
+    name: string;
+    id: string; // Example field, adjust as necessary
+}
+
 interface EventCardProps {
     title: string,
-    assignee: any,
+    assignee: Assignee,
     project: Project,
     status: TaskStatus,
     id: string,

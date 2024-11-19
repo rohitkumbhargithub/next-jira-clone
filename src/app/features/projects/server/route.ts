@@ -250,6 +250,7 @@ const app = new Hono()
         ]
       )
 
+      
       const lastMonthTasks = await databases.listDocuments(
         DATABASE_ID,
         TASKS_ID,
@@ -269,10 +270,11 @@ const app = new Hono()
         [
           Query.equal("projectId", projectId),
           Query.equal("assigneeId", member.$id),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAT", lastMonthEnd.toISOString()),
         ]
       );
+
 
       const lastMonthAssignedTasks = await databases.listDocuments(
         DATABASE_ID,
@@ -294,8 +296,8 @@ const app = new Hono()
         [
           Query.equal("projectId", projectId),
           Query.notEqual("status", TaskStatus.DONE),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 
@@ -320,8 +322,8 @@ const app = new Hono()
         [
           Query.equal("projectId", projectId),
           Query.equal("status", TaskStatus.DONE),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 
@@ -347,8 +349,8 @@ const app = new Hono()
           Query.equal("projectId", projectId),
           Query.notEqual("status", TaskStatus.DONE),
           Query.lessThan("dueDate", now.toISOString()),
-          Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
-          Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
+          // Query.greaterThanEqual("$createdAt", lastMonthStart.toISOString()),
+          // Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
 
@@ -363,6 +365,7 @@ const app = new Hono()
           Query.lessThanEqual("$createdAt", lastMonthEnd.toISOString()),
         ]
       );
+
 
       const overdueTaskCount = thisMonthOverdueTasks.total;
       const overdueTaskCountDifference = overdueTaskCount - lastMonthOverdueTasks.total;

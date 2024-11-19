@@ -39,7 +39,7 @@ export const EditTaskFormWrapper = ({
     name: member.name,
   }));
 
-  const isLoading = isLoadingProjects || isLoadingMembers;
+  const isLoading = isLoadingProjects || isLoadingMembers || isLoadingTasks;
 
   if (isLoading) {
     return (

@@ -1,11 +1,10 @@
-"use client"
-
+"use client";
 
 import { ResponsiveModal } from "@/components/responsive-model";
 import { CreateProjectForm } from "./create-project-form";
 import { useCreateProjectsModal } from "../hooks/use-create-projects-modal";
 export const CreateProjectModal = () => {
-    const { isOpen, setIsOpen, close} = useCreateProjectsModal();
+    const { isOpen, close} = useCreateProjectsModal();
 
 
     return (

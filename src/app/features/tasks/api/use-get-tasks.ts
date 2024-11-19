@@ -29,6 +29,7 @@ export const useGetTask = ({
             dueDate,
         ],
         queryFn: async () => {
+            console.log(client.api.tasks)
             const response = await client.api.tasks.$get({
                 query: { 
                     workspaceId,
