@@ -44,6 +44,7 @@ const app = new Hono()
             return c.json({ data: { $id: task.$id}})
         }
     )
+    
     .get(
         "/",
         sessionMiddleware,
@@ -167,6 +168,7 @@ const app = new Hono()
             })
         }
     )
+    
     .post(
         "/",
         sessionMiddleware,
@@ -228,6 +230,7 @@ const app = new Hono()
             return c.json({ data: task })
         }
     ) 
+    
     .patch(
         "/:taskId",
         sessionMiddleware,
@@ -282,6 +285,7 @@ const app = new Hono()
             return c.json({ data: task })
         }
     )
+    
     .get(
         "/:taskId",
         sessionMiddleware,
@@ -335,6 +339,7 @@ const app = new Hono()
             })
         }
     )
+    
     .post(
         "/bulk-update",
         sessionMiddleware,
@@ -368,6 +373,11 @@ const app = new Hono()
             }
 
             const workspaceId = workspaceIds.values().next().value;
+
+            if(!workspaceId){
+                return c.json({ error: "Workspace ID is required" }, 400);
+            }
+
             const member = await getMember({
                 databases,
                 workspaceId,
@@ -395,5 +405,9 @@ const app = new Hono()
         }
     )
 
+// export const GET = app.fetch;
+// export const POST = app.fetch;
+// export const DELETE = app.fetch;
+// export const PATCH = app.fetch;
 
 export default app;

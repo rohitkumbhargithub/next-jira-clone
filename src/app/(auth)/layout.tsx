@@ -7,7 +7,7 @@ import Link from "next/link";
 import jiraLogo from "../utils/jira.svg";
 
 interface AuthLayoutProps {
-  children: React.ReactDOM;
+  children: React.ReactNode;
 }
 
 const AuthLayout = ({ children }: AuthLayoutProps) => {

@@ -1,7 +1,7 @@
-import { getMember } from "../members/utils";
+import { getMember } from "../../members/utils";
 import { DATABASE_ID, PROJECTS_ID } from "@/config";
 import { createSessionClient } from "@/lib/appwrite";
-import { Project } from "./types";
+import { Project } from "../types";
 
 interface GetProjectProps {
   projectId: string;

@@ -42,6 +42,8 @@ export const DataKanban = ({ data, onChange }: DataKanbanProps) => {
       initialTasks[task.status].push(task);
     });
 
+    
+
     Object.keys(initialTasks).forEach((status) => {
       initialTasks[status as TaskStatus].sort(
         (a, b) => a.position - b.position
@@ -50,6 +52,8 @@ export const DataKanban = ({ data, onChange }: DataKanbanProps) => {
 
     return initialTasks;
   });
+
+ 
 
   useEffect(()=>{
     const newTasks: TasksState = {
@@ -163,6 +167,8 @@ export const DataKanban = ({ data, onChange }: DataKanbanProps) => {
 
     onChange(updatesPayload);
   }, [onChange]);
+
+  console.log(boards);
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="flex overflow-x-auto">

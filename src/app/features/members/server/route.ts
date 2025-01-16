@@ -9,6 +9,7 @@ import { getMember } from "../utils";
 import { Member, MemberRole } from "../types";
 
 const app = new Hono()
+
         .get(
             "/",
             sessionMiddleware,
@@ -54,7 +55,9 @@ const app = new Hono()
                     }
                 });
             }
-        ).delete(
+        )
+
+        .delete(
             "/:memberId",
             sessionMiddleware,
             async (c) => {
@@ -100,7 +103,9 @@ const app = new Hono()
 
                 return c.json({ data: { $id: memberToDelete.$id} });
             }
-        ).patch(
+        )
+
+        .patch(
             "/:memberId",
             sessionMiddleware,
             zValidator("json", z.object({ role: z.nativeEnum(MemberRole) })),
@@ -153,5 +158,12 @@ const app = new Hono()
             }
         )
 
-export default app;
 
+
+// export const GET = app.fetch;
+// export const POST = app.fetch;
+// export const DELETE = app.fetch;
+// export const PATCH = app.fetch;
+
+
+export default app;

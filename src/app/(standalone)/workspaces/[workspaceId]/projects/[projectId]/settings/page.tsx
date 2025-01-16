@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCurrent } from "@/features/auth/queries";
-import { getProject } from "@/app/features/projects/queries";
+import { getProject } from "@/app/features/projects/server/queries";
 import { EditProjectForm } from "@/app/features/projects/components/edit-project-form";
 
 interface ProjectIdSettigsPageProps {
